@@ -1,2 +1,4 @@
 # Wowdown
 Transforming the boring ```<select>``` tag into something beautiful!
+## Installation & Usage
+Here is the [website](https://dopevog.github.io/wowdown/) where you can find the installation and usage instructions.
