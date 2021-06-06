@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/css?family=Inconsolata:400,700">
+
+    <title>Wowdown - Beautiful dropdowns</title>
+    <meta name="description" content="Beautiful dropdowns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="icon.png" rel="icon" type="image/png">
+    <link rel="stylesheet" type="text/css" href="css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/prism.css">
+
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/wowdown.css">
+    <script src="js/wowdown.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('select.normal').wowdown()
+
+            $('select#hero_select').wowdown({
+                vertical_padding: "10px",
+            })
+
+            $('#myblue_dropdown').wowdown({
+                background: "#0f37a9",
+                active_background: "rgb(149, 211, 255)",
+                placeholder_color: "#97bce0",
+                placeholder_active_color: "#0f37a9",
+                option_color: "#405463",
+                vertical_padding: "15px",
+                horizontal_padding: "20px"
+            })
+
+            $('#intense_dropdown').wowdown({
+                background: "#1d456f",
+                active_background: "rgb(135, 142, 144)",
+                placeholder_color: "rgb(169, 232, 169)",
+                placeholder_active_color: "rgb(169, 232, 169)",
+                option_color: "#fff",
+                vertical_padding: "15px",
+                horizontal_padding: "20px",
+                intense: true
+            })
+
+        })
+
+        function my_callback(value) {
+            alert("The value selected is " + value)
+        }
+    </script>
+</head>
+
+<body>
+    <div class="row">
+        <div id="content">
+            <header style="float:left;width:100%;">
+                <hgroup class="columns medium-8">
+                    <h2 class="title">Wowdown! <span class="version">v0.1.0</span></h2>
+                    <p>Dropdowns that make you go "Wow!"</p>
+                </hgroup>
+            </header>
+            <div id="hero">
+                <div class="columns medium-12 content">
+                    <div style="padding:0" class="columns medium-5">
+                        <select style="margin-top:2px;">
+							<option value = "ew">From ugly</option>
+							<option value = "what">What</option>
+							<option value = "even">Even</option>
+						</select>
+                    </div>
+                    <div class="columns medium-2">
+                        <span class="to">to</span>
+                    </div>
+                    <div style="padding:0" class="float-right columns medium-5">
+                        <select data-placeholder="Select an Option" id="hero_select">
+						<option selected value = "beautiful">Beautiful</option>
+						<option value = "badass">Badass</option>
+						<option value = "awesome">Awesome</option>
+					</select>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="columns medium-12" id="documentation">
+                <div class="sections" id="actions">
+                    <div style="padding-left:0;" class="columns medium-8 float-left">
+                        <a target="_blank" href="https://github.com/Dopevog/wowdown" class="button">
+                            <div class="bg"></div>
+                            <div class="content">Grab the source!</div>
+                        </a>
+                    </div>
+                    <div style="padding-right:0" class="columns medium-4 float-left">
+                        <a target="_blank" href="https://patreon.com/dopevog" class="button">
+                            <div class="bg"></div>
+                            <div class="content">Support</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="sections" id="init">
+                    <h2>Installation</h2>
+                    <div class="steps">
+                        <ol>
+
+                            <li>
+                                <span class="step_name">Include the Jquery Framework</span>
+
+                                <pre><code class="language-html">&lt;script type="text/javascript" src="/path/to/jquery.js"&gt;&lt;/script&gt;</code></pre>
+
+                            </li>
+                            <li>
+                                <span class="step_name">Add the wowdown.js</span>
+                                <pre><code class="language-html">&lt;script type="text/javascript" src="/path/to/wowdown.js"&gt;&lt;/script&gt;</code></pre>
+                            </li>
+                            <li>
+                                <span class="step_name">.. and the wowdown.css</span>
+                                <pre><code class="language-html">&lt;link href="/path/to/wowdown.css" rel="stylesheet" /&gt;</code></pre>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="sections" id="init">
+                    <h2>Usage</h2>
+                    <div class="steps">
+                        <ol>
+                            <li>
+                                <span class="step_name">Create a standard HTML select as you would, with <span class="code">data-placeholder</span> to give a placeholder text. </span>
+                                <pre><code class="language-html">&lt;select name="food_selector" data-placeholder="Select a food to eat"&gt;
+	&lt;option value="Ice Cream"&gt;Ice Cream&lt;/option&gt;
+	...
+&lt;/select&gt;</code></pre>
+
+                            </li>
+                            <li>
+                                <span class="step_name">Initiate the plugin in your js file</span>
+                                <pre><code class="language-javascript">$(document).ready(function(){ <br />
+     $('select').wowdown() <br />
+});</code></pre>
+                            </li>
+                        </ol>
+                        <div class="output">
+                            <span>Output</span>
+                            <select class="normal" data-placeholder="Select an option">
+                            <option value="Ice Cream">Ice Cream</option>
+                            <option value="Chocolate">Chocolate</option>
+                            <option value="Waffels">Waffels</option>
+						</select>
+                        </div>
+                    </div>
+                </div>
+                <div class="sections" id="init">
+                    <h2>Customizing</h2>
+                    <p>You are allowed to change the way the dropdown look like based on your own taste. You can find the table explaining each options after the example output to be shown below.</p>
+                    <div class="steps">
+
+                        <ol>
+                            <li>
+                                <span class="step_name">Add the desired options during the initialisation.</span>
+                                <pre><code class="language-javascript">$(document).ready(function(){
+     $('#myblue_dropdown').wowdown({
+	    background: "#0f37a9",
+		active_background:"rgb(149, 211, 255)", 
+		placeholder_color: "#97bce0", 
+		placeholder_active_color: "#0f37a9", 
+		option_color:"#405463", 
+		vertical_padding: "15px",
+		horizontal_padding: "20px", 
+        intense: false 
+	});
+});</code></pre>
+                            </li>
+
+                        </ol>
+
+                        <div class="output">
+                            <span>Output</span>
+                            <select id="myblue_dropdown" data-placeholder="How do you travel?">
+							<option value="1">Car</option>
+							<option value="2">Bus</option>
+							<option value="3">Unicorn</option>
+						</select>
+                        </div>
+
+
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width:180px;">Option</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>background</td>
+                                    <td>
+                                        Sets the initial background of the dropdown
+                                        <div class="code">
+                                            <span>Default: #e5e5e5</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>active_background</td>
+                                    <td>
+                                        Sets the active background color when the dropdown is opened
+                                        <div class="code">
+                                            <span>Default: #fff</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>placeholder_color</td>
+                                    <td>
+                                        The initial color of the placeholder text
+                                        <div class="code">
+                                            <span>Default: #000</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>placeholder_active_color</td>
+                                    <td>
+                                        The active color of the placeholder text when the dropdown is opened
+                                        <div class="code">
+                                            <span>Default: #000</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>option_color</td>
+                                    <td>
+                                        Color of the option values
+                                        <div class="code">
+                                            <span>Default: #000</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>vertical_padding</td>
+                                    <td>
+                                        Vertical padding of the dropdown
+                                        <div class="code">
+                                            <span>Default: 15px</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>horizontal_padding</td>
+                                    <td>
+                                        Horizontal padding of the dropdown
+                                        <div class="code">
+                                            <span>Default: 40px</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>intense</td>
+                                    <td>
+                                        Intense mode
+                                        <div class="code">
+                                            <span>Default: false</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="sections" id="init">
+                    <h2>Intense Mode</h2>
+                    <p>Perhaps you may want to make your dropdown more intense for your users. If that's the case, then you might want to checkout the <span class='code'>intense</span> option</p>
+                    <div class="steps">
+                        <ol>
+                            <li>
+                                <span class="step_name">Set the <span class = "code">intense</span> option to true</span>
+                                <pre><code class="language-javascript">$(document).ready(function(){
+     $('#intense_dropdown').wowdown({
+        ...
+        intense: true // add this option
+    });
+});</code></pre>
+                            </li>
+
+                        </ol>
+                        <div class="output">
+                            <span>Output</span>
+                            <select id="intense_dropdown" data-placeholder=" Dropdown">
+                            <option value="dramatic">Dramatic</option>
+                            <option value="very_dramatic">Very Dramatic</option>
+                            <option value="super_dramatic">Super Dramatic</option>
+                        </select>
+                        </div>
+                        <p class="note">**Currently the intense animation will automatically be used if the display is below 800px (mobile devices) regardless if the option value is <span class="code">false</span></p>
+                    </div>
+                </div>
+                <div class="sections" id="init">
+                    <h2>Callbacks</h2>
+                    <p>Additionally you may want to add callbacks to handle what happens when the user selects an option.</p>
+                    <div class="steps">
+                        <ol>
+                            <li>
+                                <span class="step_name">Add the <span class = "code">data-callback</span> attribute followed by your callback function.</span>
+                                <pre><code class="language-html">&lt;select name="food_selector" data-callback="my_callback" data-placeholder="Select a food to eat" &gt;
+    ...</code></pre>
+                            </li>
+                            <li>
+                                <span class="step_name">The callback function should be placed outside <span class = "code">$(document).ready()</span>. The function can also access the <span class="code">value</span> that was chosen by the user.</span>
+                                <pre><code class="language-javascript">$(document).ready(function(){
+   ...
+})
+
+function my_callback(value){
+    alert("The value selected is " + value)
+}</code></pre>
+                            </li>
+
+                        </ol>
+                        <div class="output">
+                            <span>Output</span>
+                            <select class="normal" data-callback="my_callback" data-placeholder="Select something to eat">
+                            <option value="Ice Cream">Ice Cream</option>
+                            <option value="Chocolate">Chocolate</option>
+                            <option value="Waffels">Waffels</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <footer class="columns medium-12">
+                <p>
+                    Made with 💙 on Earth <br /> All Rights Reserved - Dopevog.
+                </p>
+            </footer>
+        </div>
+
+    </div>
+
+    <script src="js/prism.js"></script>
+</body>
