@@ -1,2 +1,2 @@
-# wowdown
-Dropdowns that make you go "Wow!"
+# Wowdown
+Transforming the boring ```<select>``` tag into something beautiful!
